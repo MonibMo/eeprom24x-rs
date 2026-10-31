@@ -36,7 +36,7 @@ impl<I2C, PS, AS, SN> Eeprom24x<I2C, PS, AS, SN>
 where
     AS: MultiSizeAddr,
 {
-    fn get_device_address<E>(&self, memory_address: u32) -> Result<u8, Error<E>> {
+    pub(crate) fn get_device_address<E>(&self, memory_address: u32) -> Result<u8, Error<E>> {
         if memory_address >= (1 << self.address_bits) {
             return Err(Error::InvalidAddr);
         }

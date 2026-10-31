@@ -348,3 +348,8 @@ mod eeprom24x;
 mod serial_number;
 mod slave_addr;
 mod storage;
+
+#[cfg(feature = "async")]
+mod asynch;
+#[cfg(feature = "async")]
+pub use asynch::AsyncPageWrite;
